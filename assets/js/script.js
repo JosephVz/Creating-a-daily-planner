@@ -1,11 +1,4 @@
 
-var currentHour = dayjs();
-
-// var presentHour = "red";
-// var pastHour = "grey";
-// var futureHour = "green";
-
-
 var saveButton = document.querySelector("#save-btn");
 var saveButton2 = document.querySelector("#save-btn2");
 var saveButton3 = document.querySelector("#save-btn3");
@@ -163,13 +156,7 @@ saveButton9.addEventListener("click", function(event) {
   }
 );
 
-
-
-
-
-// $(function () {
-
-//   });
+var currentHour = dayjs();
 
 function updateTime() {
     var currentDay = dayjs().format('MMM DD, YYYY');
@@ -178,6 +165,25 @@ function updateTime() {
 }
 
 setInterval(updateTime, 1);
+
+var currentHour = dayjs().hour();
+var timeBlocks = document.querySelectorAll("row time-block");
+
+timeBlocks.forEach((timeBlock) => {
+  var hour = parseInt(timeBlock.getAttribute("data-hour"));
+
+  if (hour < currentHour) {
+    timeBlock.classList.add("past");
+  } else if (hour === currentHour) {
+    timeBlock.classList.add("present");
+  } else {
+    timeBlock.classList.add("future");
+  }
+});
+
+
+
+
 
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
