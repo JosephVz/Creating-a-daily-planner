@@ -160,7 +160,7 @@ var currentHour = dayjs();
 
 function updateTime() {
     var currentDay = dayjs().format('MMM DD, YYYY');
-    var currentTime = dayjs().format("hh:mm:ss:a");
+    var currentTime = dayjs().format("hh:mm:ss A");
     $("#currentDay").text(currentDay + " at " + currentTime);
 }
 
