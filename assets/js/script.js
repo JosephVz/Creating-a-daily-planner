@@ -1,9 +1,41 @@
 
 var currentHour = dayjs();
 
-var presentHour = "red";
-var pastHour = "grey";
-var futureHour = "green";
+// var presentHour = "red";
+// var pastHour = "grey";
+// var futureHour = "green";
+
+
+var saveButton = document.querySelector("#save-btn");
+var userInput = document.querySelector("#input");
+
+renderLastRegistered();
+
+function displayMessage(type, message) {
+  userInput.textContent = message;
+  userInput.setAttribute("class", type);
+}
+
+function renderLastRegistered() {
+  var input = localStorage.getItem("input");
+
+  userInput.textContent = input;
+}
+
+saveButton.addEventListener("click", function(event) {
+  console.log("click");
+  event.preventDefault();
+
+  var input = userInput.value;
+
+    localStorage.setItem("input", input);
+
+    renderLastRegistered();
+  }
+);
+
+
+
 
 
 // $(function () {
