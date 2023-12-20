@@ -167,7 +167,8 @@ function updateTime() {
 setInterval(updateTime, 1);
 
 var currentHour = dayjs().hour();
-var timeBlocks = document.querySelectorAll("row time-block");
+var timeBlocks = document.querySelectorAll(".time-block");
+// console.log(timeBlocks);
 
 timeBlocks.forEach((timeBlock) => {
   var hour = parseInt(timeBlock.getAttribute("data-hour"));
